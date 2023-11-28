@@ -39,43 +39,6 @@ var SCREEN = {
 
 var ctx;
 
-// TODO
-const renderX = () => {};
-
-const renderY = () => {};
-
-const renderZ = () => {};
-
-const renderLoop = () => {
-	const points = [];
-
-	ctx.fillRect(0, 0, screen.h, screen.w);
-
-	vertices.map(function (vertex) {
-		points.push(
-			vertex
-				.rotateX(currentAngle)
-				.rotateY(currentAngle)
-				.rotateZ(currentAngle)
-				.project(screen.h, screen.w, 128, 7)
-		);
-	});
-
-	cubeFaces.map(function (cubeFace) {
-		ctx.beginPath();
-		ctx.moveTo(points[cubeFace[0]].x, points[cubeFace[0]].y);
-		ctx.lineTo(points[cubeFace[1]].x, points[cubeFace[1]].y);
-		ctx.lineTo(points[cubeFace[2]].x, points[cubeFace[2]].y);
-		ctx.lineTo(points[cubeFace[3]].x, points[cubeFace[3]].y);
-		ctx.closePath();
-		ctx.stroke();
-	});
-
-	currentAngle += 2;
-
-	requestAnimationFrame(renderLoop);
-};
-
 const updateRender = () => {
 	const points = [];
 
